@@ -12,8 +12,6 @@ class GameContainer extends React.Component {
 
     this.state = {
       board: [null, null, null, null, null, null, null, null, null],
-      currentPlayer: 0,
-      message: ''
     };
 
     this.handleBoardClick = this.handleBoardClick.bind(this)
@@ -22,11 +20,9 @@ class GameContainer extends React.Component {
     render() {
       return (
         <div>
-        <Title/>
-        <Message message={this.state.message}/>
         <Board
           board={this.state.board}
-          currentPlayer={this.state.currentPlayer}
+          currentPlayer={this.props.currentPlayer}
           handleBoardClick={this.handleBoardClick}
         />
       </div>
@@ -35,12 +31,15 @@ class GameContainer extends React.Component {
 
     handleBoardClick(position) {
       const updatedBoard = this.state.board;
-      updatedBoard[position] = this.state.currentPlayer;
-      const nextPlayer = this.state.currentPlayer === 0 ? 1: 0;
-      this.setState({currentPlayer: nextPlayer, board: updatedBoard});
+      updatedBoard[position] = this.props.currentPlayer;
+      this.setState({board: updatedBoard});
 
       if (this.gameLogic.hasWon(this.state.board, position)) {
-        this.setState({message: 'Game Over'})
+        this.props.handleMiniGameWin(this.props.position);
+        console.log('handleMiniGameWin called');
+      }
+      else {
+        this.props.updatePlayer();
       }
 
     }

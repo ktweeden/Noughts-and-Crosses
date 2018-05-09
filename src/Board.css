@@ -1,17 +1,25 @@
 .board {
-  margin: 2rem;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 400px;
-  height: 400px;
+  width: 150px;
+  height:150px;
   border: 1px solid black;
 }
 
 .board-square {
   border: 1px solid black;
-  font-size: 5rem;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.game-board {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 450px;
+  height: 450px;
+  margin: 0 1rem;
 }
