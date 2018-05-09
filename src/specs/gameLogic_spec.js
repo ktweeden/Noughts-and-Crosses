@@ -48,4 +48,34 @@ it('player loses with only 2 of a vertical set', function() {
   assert.strictEqual(result, false);
 });
 
+it('player wins with a left to right diagonal set', function() {
+  game.board = [
+  [0, null, null],
+  [null, 0, null],
+  [null, null, 0]]
+
+  const result = game.hasWon(0, 0);
+  assert.strictEqual(result, true);
+});
+
+it('player wins with a right to left diagonal set', function() {
+  game.board = [
+  [null, null, 0],
+  [null, 0, null],
+  [0, null, null]]
+
+  const result = game.hasWon(0, 2);
+  assert.strictEqual(result, true);
+});
+
+it('player loses', function() {
+  game.board = [
+  [0, null, 0],
+  [null, null, null],
+  [0, null, 0]]
+
+  const result = game.hasWon(0, 2);
+  assert.strictEqual(result, false);
+});
+
 });
