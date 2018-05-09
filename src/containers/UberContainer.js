@@ -1,6 +1,7 @@
 import React from 'react';
 import GameLogic from '../models/gameLogic.js';
 import Title from '../components/Title.js';
+import Rules from '../components/Rules.js';
 import Message from '../components/Message.js';
 import GameContainer from './GameContainer.js';
 import BoardSquare from '../components/BoardSquare';
@@ -40,6 +41,7 @@ class UberContainer extends React.Component {
     return (
       <div className="uber-container">
         <Title/>
+        <Rules/>
         <Message message={this.state.message}/>
         <div className="game-board">{gameNodes}</div>
       </div>

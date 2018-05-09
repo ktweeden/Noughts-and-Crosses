@@ -2,9 +2,16 @@
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 150px;
-  height:150px;
+  width: 11vw;
+  height: 11vw;
   border: 1px solid black;
+}
+
+@media only screen and (max-width: 600px) {
+    .board {
+      width: 30vw;
+      height: 30vw;
+    }
 }
 
 .board-square {
@@ -16,14 +23,21 @@
 }
 
 .large-square.board-square {
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 .game-board {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 450px;
-  height: 450px;
+  width: 33vw;
+  height: 33vw;
   margin: 0 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .game-board {
+      width: 90vw;
+      height: 90vw;
+    }
 }
