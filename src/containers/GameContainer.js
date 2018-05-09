@@ -11,17 +11,27 @@ class GameContainer extends React.Component {
 
     this.state = {
       game: gameLogic,
-      currentPlayer: true
+      currentPlayer: 0
     };
+
+    this.handleBoardClick = this.handleBoardClick.bind(this)
   }
 
     render() {
       return (
         <div>
         <Title/>
-        <Board board={this.state.game.board}/>
+        <Board
+          board={this.state.game.board}
+          currentPlayer={this.state.currentPlayer}
+          handleBoardClick={this.handleBoardClick}
+        />
       </div>
       )
+    }
+
+    handleBoardClick(position) {
+      console.log(position);
     }
   }
 

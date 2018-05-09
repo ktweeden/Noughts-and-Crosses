@@ -12,7 +12,12 @@ class Board extends React.Component {
 
     const nodes = squares.map((value, index) => {
       return (
-        <BoardSquare symbol={value} key={index}/>
+        <BoardSquare
+          symbol={value}
+          key={index}
+          position={index}
+          currentPlayer={this.props.currentPlayer}
+          handleBoardClick={this.props.handleBoardClick}/>
       )
     });
 
