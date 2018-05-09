@@ -17,7 +17,7 @@ class GameLogic {
       if(position === null) {
         won = false;
       }
-      else if (position != value) {
+      else if (position !== value) {
         won = false;
       }
     });
@@ -32,7 +32,7 @@ class GameLogic {
         if(this.board[i][column] === null) {
           won = false
         }
-        else if(this.board[i][column] != value) {
+        else if(this.board[i][column] !== value) {
           won = false
         }
       }
@@ -46,7 +46,7 @@ class GameLogic {
           if(this.board[i][i] === null) {
             won = false
           }
-          else if(this.board[i][i] != value) {
+          else if(this.board[i][i] !== value) {
             won = false
           }
         }
@@ -61,7 +61,7 @@ class GameLogic {
             if(this.board[i][column] === null) {
               won = false;
             }
-            else if(this.board[i][column] != value) {
+            else if(this.board[i][column] !== value) {
               won = false
             }
             column -= 1
