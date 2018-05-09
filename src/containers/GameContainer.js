@@ -1,8 +1,6 @@
 import React from 'react';
 import GameLogic from '../models/gameLogic.js';
-import Title from '../components/Title.js';
 import Board from '../components/Board.js';
-import Message from '../components/Message.js';
 
 class GameContainer extends React.Component {
 
@@ -20,12 +18,12 @@ class GameContainer extends React.Component {
     render() {
       return (
         <div>
-        <Board
-          board={this.state.board}
-          currentPlayer={this.props.currentPlayer}
-          handleBoardClick={this.handleBoardClick}
-        />
-      </div>
+          <Board
+            board={this.state.board}
+            currentPlayer={this.props.currentPlayer}
+            handleBoardClick={this.handleBoardClick}
+          />
+        </div>
       )
     }
 

@@ -11,7 +11,7 @@ class BoardSquare extends React.Component {
   render() {
     return (
       <div
-        className="board-square"
+        className={`board-square ${this.props.large ? 'large-square' : ''}`}
         onClick={this.handleSquareClick}
         >
         {this.getSymbol(this.props.symbol)}

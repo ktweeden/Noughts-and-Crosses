@@ -3,6 +3,7 @@ import GameLogic from '../models/gameLogic.js';
 import Title from '../components/Title.js';
 import Message from '../components/Message.js';
 import GameContainer from './GameContainer.js';
+import BoardSquare from '../components/BoardSquare';
 
 
 class UberContainer extends React.Component {
@@ -22,13 +23,18 @@ class UberContainer extends React.Component {
 
   render() {
     const gameNodes = this.state.board.map((value, index) => {
-      return <GameContainer
-        handleMiniGameWin={this.handleMiniGameWin}
-        position={index}
-        currentPlayer={this.state.currentPlayer}
-        updatePlayer={this.updatePlayer}
-        key={index}
-      />
+      if (value === null) {
+        return <GameContainer
+          handleMiniGameWin={this.handleMiniGameWin}
+          position={index}
+          currentPlayer={this.state.currentPlayer}
+          updatePlayer={this.updatePlayer}
+          key={index}
+        />
+      }
+      else {
+        return <BoardSquare large symbol={value} key={index}/>
+      }
     });
 
     return (

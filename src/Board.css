@@ -15,6 +15,10 @@
   align-items: center;
 }
 
+.large-square.board-square {
+  font-size: 5rem;
+}
+
 .game-board {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
