@@ -1,6 +1,13 @@
-.App {
+#root {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
+
+.board {
+  animation: App-logo-spin infinite 20s linear;
+}
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

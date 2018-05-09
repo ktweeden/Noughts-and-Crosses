@@ -28,7 +28,7 @@ class BoardSquare extends React.Component {
 
   getSymbol(value) {
     if(value === 0) {
-      return 'o';
+      return 'O';
     }
     else if (value === 1) {
       return 'X';
