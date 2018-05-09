@@ -1,67 +1,53 @@
 class GameLogic {
 
-  hasWon(board, row, column) {
-    let won = true;
-    let value = board[row][column];
-
-    //checks for horizontal set
-    board[row].forEach( position => {
-      if(position === null) {
-        won = false;
-      }
-      else if (position !== value) {
-        won = false;
-      }
-    });
-
-    if(won) {
-      return won
+  hasWon(board, position) {
+    if (
+      this.checkForVerticalWin(board, position) ||
+      this.checkForHorizontalWin(board, position) ||
+      this.checkForDiagonalWin(board, position)
+    ) {
+      return true
     }
-    else {
-      //checks for vertical sets
-      won = true;
-      for(let i = 0; i < 2; i++) {
-        if(board[i][column] === null) {
-          won = false
-        }
-        else if(board[i][column] !== value) {
-          won = false
-        }
-      }
-      if (won) {
-        return won;
-      }
-      else {
-        // left to right diagonal check
-        won = true;
-        for(let i = 0; i < 2; i++) {
-          if(board[i][i] === null) {
-            won = false
-          }
-          else if(board[i][i] !== value) {
-            won = false
-          }
-        }
-        if(won) {
-          return won;
-        }
-        else {
-          // right to left diagonal check
-          won = true;
-          let column = 2;
-          for(let i=0; i<2; i++) {
-            if(board[i][column] === null) {
-              won = false;
-            }
-            else if(board[i][column] !== value) {
-              won = false
-            }
-            column -= 1
-          }
-          return won;
-        }
-      }
+    else {return false}
+  }
+
+  checkForVerticalWin(board, position) {
+    const value = board[position]
+    if(board[0]=== value && board[3] === value && board[6] === value) {
+      return true
     }
+    else if(board[1]=== value && board[4] === value && board[7] === value) {
+      return true
+    }
+    else if(board[2]=== value && board[5] === value && board[8] === value) {
+      return true
+    }
+    return false
+  }
+
+  checkForHorizontalWin(board, position) {
+    const value = board[position]
+    if(board[0]=== value && board[1] === value && board[2] === value) {
+      return true
+    }
+    else if(board[3]=== value && board[4] === value && board[5] === value) {
+      return true
+    }
+    else if(board[6]=== value && board[7] === value && board[8] === value) {
+      return true
+    }
+    return false
+  }
+
+  checkForDiagonalWin(board, position) {
+    const value = board[position]
+    if(board[0]=== value && board[4] === value && board[8] === value) {
+      return true
+    }
+    else if(board[2]=== value && board[4] === value && board[6] === value) {
+      return true
+    }
+    return false
   }
 }
 

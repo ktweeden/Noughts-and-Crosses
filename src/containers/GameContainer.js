@@ -11,26 +11,10 @@ class GameContainer extends React.Component {
     this.gameLogic = new GameLogic();
 
     this.state = {
-      board: [
-      [null, null, null],
-      [null, null, null],
-      [null, null, null]
-    ],
+      board: [null, null, null, null, null, null, null, null, null],
       currentPlayer: 0,
       message: ''
     };
-
-    this.positionMap = {
-      0:[0, 0],
-      1:[0, 1],
-      2:[0, 2],
-      3:[1, 0],
-      4:[1, 1],
-      5:[1, 2],
-      6:[2, 0],
-      7:[2, 1],
-      8:[2, 2]
-    }
 
     this.handleBoardClick = this.handleBoardClick.bind(this)
   }
@@ -51,14 +35,14 @@ class GameContainer extends React.Component {
 
     handleBoardClick(position) {
       const updatedBoard = this.state.board;
-      const coordiates = this.positionMap[position];
-      updatedBoard[coordiates[0]][coordiates[1]] = this.state.currentPlayer;
+      updatedBoard[position] = this.state.currentPlayer;
       const nextPlayer = this.state.currentPlayer === 0 ? 1: 0;
       this.setState({currentPlayer: nextPlayer, board: updatedBoard});
 
-      if (this.gameLogic.hasWon(this.state.board, coordiates[0], coordiates[1])) {
+      if (this.gameLogic.hasWon(this.state.board, position)) {
         this.setState({message: 'Game Over'})
       }
+
     }
   }
 
