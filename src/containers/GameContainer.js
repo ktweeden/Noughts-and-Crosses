@@ -2,12 +2,13 @@ import React from 'react';
 import GameLogic from '../models/gameLogic.js';
 import Title from '../components/Title.js';
 import Board from '../components/Board.js';
+import Message from '../components/Message.js';
 
 class GameContainer extends React.Component {
 
   constructor(props) {
     super(props);
-    const gameLogic = new GameLogic();
+    this.gameLogic = new GameLogic();
 
     this.state = {
       board: [
@@ -16,6 +17,7 @@ class GameContainer extends React.Component {
       [null, null, null]
     ],
       currentPlayer: 0,
+      message: ''
     };
 
     this.positionMap = {
@@ -37,6 +39,7 @@ class GameContainer extends React.Component {
       return (
         <div>
         <Title/>
+        <Message message={this.state.message}/>
         <Board
           board={this.state.board}
           currentPlayer={this.state.currentPlayer}
@@ -47,14 +50,15 @@ class GameContainer extends React.Component {
     }
 
     handleBoardClick(position) {
-      console.log(position);
-
       const updatedBoard = this.state.board;
       const coordiates = this.positionMap[position];
-      console.log(coordiates);
       updatedBoard[coordiates[0]][coordiates[1]] = this.state.currentPlayer;
       const nextPlayer = this.state.currentPlayer === 0 ? 1: 0;
       this.setState({currentPlayer: nextPlayer, board: updatedBoard});
+
+      if (this.gameLogic.hasWon(this.state.board, coordiates[0], coordiates[1])) {
+        this.setState({message: 'Game Over'})
+      }
     }
   }
 

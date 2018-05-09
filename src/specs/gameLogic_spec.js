@@ -9,72 +9,72 @@ describe ('gameLogic', function() {
  });
 
 it('player wins with a horizontal set', function() {
-  game.board = [
+  const board = [
   [0, 0, 0],
   [null, null, null],
   [null, null, null]]
 
-  const result = game.hasWon(0,1);
+  const result = game.hasWon(board, 0,1);
   assert.strictEqual(result, true);
 });
 
 it('player loses with only 2 of a horizontal set', function() {
-  game.board = [
+  const board = [
   [0, 1, 0],
   [null, null, null],
   [null, null, null]]
 
-  const result = game.hasWon(0,1);
+  const result = game.hasWon(board, 0,1);
   assert.strictEqual(result, false);
 });
 
 it('player wins with a vertical set', function() {
-  game.board = [
+  const board = [
   [0, null, null],
   [0, null, null],
   [0, null, null]]
 
-  const result = game.hasWon(0, 0);
+  const result = game.hasWon(board, 0, 0);
   assert.strictEqual(result, true);
 });
 
 it('player loses with only 2 of a vertical set', function() {
-  game.board = [
+  const board = [
   [0, null, null],
   [null, null, null],
   [0, null, null]]
 
-  const result = game.hasWon(0, 0);
+  const result = game.hasWon(board, 0, 0);
   assert.strictEqual(result, false);
 });
 
 it('player wins with a left to right diagonal set', function() {
-  game.board = [
+  const board = [
   [0, null, null],
   [null, 0, null],
   [null, null, 0]]
 
-  const result = game.hasWon(0, 0);
+  const result = game.hasWon(board, 0, 0);
   assert.strictEqual(result, true);
 });
 
 it('player wins with a right to left diagonal set', function() {
-  game.board = [
+  const board = [
   [null, null, 0],
   [null, 0, null],
   [0, null, null]]
 
-  const result = game.hasWon(0, 2);
+  const result = game.hasWon(board, 0, 2);
   assert.strictEqual(result, true);
 });
 
 it('player loses', function() {
-  game.board = [
+  const board = [
   [0, null, 0],
   [null, null, null],
   [0, null, 0]]
 
-  const result = game.hasWon(0, 2);
+  const result = game.hasWon(board, 0, 2);
   assert.strictEqual(result, false);
 });
 

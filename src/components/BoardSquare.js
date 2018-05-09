@@ -31,7 +31,7 @@ class BoardSquare extends React.Component {
       return 'o';
     }
     else if (value === 1) {
-      return '1';
+      return 'X';
     }
     else {
       return '';
