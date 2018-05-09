@@ -28,7 +28,7 @@ it('player loses with only 2 of a horizontal set', function() {
   assert.strictEqual(result, false);
 });
 
-it('player wins with a verticle set', function() {
+it('player wins with a vertical set', function() {
   game.board = [
   [0, null, null],
   [0, null, null],
@@ -36,6 +36,16 @@ it('player wins with a verticle set', function() {
 
   const result = game.hasWon(0, 0);
   assert.strictEqual(result, true);
+});
+
+it('player loses with only 2 of a vertical set', function() {
+  game.board = [
+  [0, null, null],
+  [null, null, null],
+  [0, null, null]]
+
+  const result = game.hasWon(0, 0);
+  assert.strictEqual(result, false);
 });
 
 });
