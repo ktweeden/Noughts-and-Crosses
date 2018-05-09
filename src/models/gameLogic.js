@@ -1,14 +1,6 @@
 class GameLogic {
 
-  constructor() {
-    this.board = [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null]
-  ];
-  }
-
-  hasWon(row, column) {
+  hasWon(board, row, column) {
     let won = true;
     let value = this.board[row][column];
 
