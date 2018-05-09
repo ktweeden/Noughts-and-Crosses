@@ -1,6 +1,6 @@
 import React from 'react';
 import BoardSquare from './BoardSquare.js'
-
+import '../Board.css'
 
 class Board extends React.Component {
   render() {
