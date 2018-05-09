@@ -14,7 +14,7 @@ class UberContainer extends React.Component {
     this.state = {
       board: [null, null, null, null, null, null, null, null, null],
       currentPlayer: 0,
-      message: ''
+      message: "Player 1's turn"
     };
 
     this.handleMiniGameWin = this.handleMiniGameWin.bind(this)
@@ -53,7 +53,7 @@ class UberContainer extends React.Component {
     console.log('updatedBoard:', updatedBoard );
     this.setState({board: updatedBoard})
     if(this.gameLogic.hasWon(this.state.board, position)) {
-      this.setState({message: 'Game Over'})
+      this.setState({message: `Game Over, ${this.state.currentPlayer === 0 ? "Player 1" : "Player 2"} wins`})
     }
     else {
       this.updatePlayer()
@@ -63,6 +63,8 @@ class UberContainer extends React.Component {
   updatePlayer() {
     const newPlayer = this.state.currentPlayer === 0 ? 1 : 0;
     this.setState({currentPlayer: newPlayer});
+    const message = `${newPlayer === 0 ? "Player 1's" : "Player 2's"} turn`
+    this.setState({message: message})
   }
 }
 
