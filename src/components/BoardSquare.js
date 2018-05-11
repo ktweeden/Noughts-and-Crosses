@@ -22,7 +22,7 @@ class BoardSquare extends React.Component {
   handleSquareClick() {
     if(this.props.symbol === null) {
       this.getSymbol(this.props.currentPlayer);
-      this.props.handleBoardClick(this.props.position);
+      this.props.handleBoardClick(this.props.position, this.props.boardPosition);
     }
   }
 

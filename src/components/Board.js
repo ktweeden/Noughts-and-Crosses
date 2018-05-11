@@ -9,6 +9,7 @@ class Board extends React.Component {
         <BoardSquare
           symbol={value}
           key={index}
+          boardPosition={this.props.boardPosition}
           position={index}
           currentPlayer={this.props.currentPlayer}
           handleBoardClick={this.props.handleBoardClick}/>
